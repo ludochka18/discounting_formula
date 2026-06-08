@@ -1,0 +1,23 @@
+def calculate_discounting():
+    discount_rate = float(input("Введите ставку дисконтирования в %: ")) / 100
+    years_count = int(input("Введите количество лет: "))
+
+    discounted_flows = []
+
+    for year in range(1, years_count + 1):
+        cash_flow = float(input(f"Введите денежный поток за {year} год: "))
+
+        discounted_flow = cash_flow / (1 + discount_rate) ** year
+        discounted_flows.append(discounted_flow)
+
+    print("\nРезультаты дисконтирования:")
+
+    for year, discounted_flow in enumerate(discounted_flows, start=1):
+        print(f"{year} год: {discounted_flow:,.2f} руб.")
+
+    total = sum(discounted_flows)
+
+    print(f"\nСумма дисконтированных потоков: {total:,.2f} руб.")
+
+
+calculate_discounting()
